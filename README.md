@@ -1,119 +1,73 @@
-# Data Warehouse and Analytics Project
+# SQL Server Data Warehouse
 
-Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+End-to-end data warehouse portfolio project: ingest CRM and ERP source data, clean it through a Medallion pipeline, and model a star schema for analytics.
 
----
-## 🏗️ Data Architecture
+**Stack:** SQL Server · T-SQL · Medallion Architecture (Bronze → Silver → Gold) · Star Schema
 
-The data architecture for this project follows Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
 ![Data Architecture](docs/arch.png)
 
-1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
-2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
-3. **Gold Layer**: Houses business-ready data modeled into a star schema required for reporting and analytics.
-
 ---
-## 📖 Project Overview
 
-This project involves:
+## What this project shows
 
-1. **Data Architecture**: Designing a Modern Data Warehouse Using Medallion Architecture **Bronze**, **Silver**, and **Gold** layers.
-2. **ETL Pipelines**: Extracting, transforming, and loading data from source systems into the warehouse.
-3. **Data Modeling**: Developing fact and dimension tables optimized for analytical queries.
-4. **Analytics & Reporting**: Creating SQL-based reports and dashboards for actionable insights.
+| Layer | Purpose |
+| --- | --- |
+| **Bronze** | Load raw CRM/ERP CSV extracts into SQL Server as-is |
+| **Silver** | Cleanse, standardize, and normalize for consistency |
+| **Gold** | Business-ready star schema for reporting and analysis |
 
-🎯 This repository is an excellent resource for professionals and students looking to showcase expertise in:
-- SQL Development
-- Data Architect
-- Data Engineering  
-- ETL Pipeline Developer  
-- Data Modeling  
-- Data Analytics  
+Also covered:
+
+- ETL design for two source systems into one analytical model
+- Dimensional modelling (facts + dimensions)
+- Data catalog and naming conventions
+- SQL analytics for customer, product, and sales questions
 
 ---
 
-## 🛠️ Important Links & Tools:
+## Repository layout
 
-Everything is for Free!
-- **[Datasets](datasets/)** 
-- **[SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)** 
-- **[SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)**
-- **[Git Repository](https://github.com/):**
-- **[DrawIO](https://www.drawio.com/)** 
-- **[Notion](https://www.notion.so/SQL-Data-Warehouse-Project-278184f2bd91806e8c87e830f37d32e3?source=copy_link):** Project Template
-  
-
----
-
-## 🚀 Project Requirements
-
-### Building the Data Warehouse (Data Engineering)
-
-#### Objective
-Develop a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
-
-#### Specifications
-- **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
-- **Data Quality**: Cleanse and resolve data quality issues prior to analysis.
-- **Integration**: Combine both sources into a single, user-friendly data model designed for analytical queries.
-- **Scope**: Focus on the latest dataset only; historization of data is not required.
-- **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
-
----
-
-### BI: Analytics & Reporting (Data Analysis)
-
-#### Objective
-Develop SQL-based analytics to deliver detailed insights into:
-- **Customer Behavior**
-- **Product Performance**
-- **Sales Trends**
-
-These insights empower stakeholders with key business metrics, enabling strategic decision-making.  
-
-
-
-## 📂 Repository Structure
+```text
+Data-Warehouse-SQL-Project/
+├── datasets/          # CRM and ERP source CSVs
+├── docs/              # Architecture diagrams, data catalog, models
+├── scripts/
+│   ├── init_database.sql
+│   ├── bronze/        # Raw load scripts
+│   ├── silver/        # Transform scripts
+│   └── gold/          # Analytical model scripts
+├── tests/             # Data quality checks
+├── README.md
+└── LICENSE
 ```
-data-warehouse-project/
-│
-├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
-│
-├── docs/                               # Project documentation and architecture details
-│   ├── etl.drawio                      # Draw.io file shows all different techniquies and methods of ETL
-│   ├── data_architecture.drawio        # Draw.io file shows the project's architecture
-│   ├── data_catalog.md                 # Catalog of datasets, including field descriptions and metadata
-│   ├── data_flow.drawio                # Draw.io file for the data flow diagram
-│   ├── data_models.drawio              # Draw.io file for data models (star schema)
-│   ├── naming-conventions.md           # Consistent naming guidelines for tables, columns, and files
-│
-├── scripts/                            # SQL scripts for ETL and transformations
-│   ├── bronze/                         # Scripts for extracting and loading raw data
-│   ├── silver/                         # Scripts for cleaning and transforming data
-│   ├── gold/                           # Scripts for creating analytical models
-│
-├── tests/                              # Test scripts and quality files
-│
-├── README.md                           # Project overview and instructions
-├── LICENSE                             # License information for the repository
-├── .gitignore                          # Files and directories to be ignored by Git
-└── requirements.txt                    # Dependencies and requirements for the project
-```
----
-
-## ☕ Stay Connected
-
-Let's stay in touch! Feel free to connect with me on the following platforms:
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ashutosh-bhosalee/)
 
 ---
 
-## 🛡️ License
+## How to explore
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+1. Review the architecture: [`docs/arch.png`](docs/arch.png), [`docs/data_flow.png`](docs/data_flow.png), [`docs/data_model.png`](docs/data_model.png)
+2. Read the catalog: [`docs/data_catalog.md`](docs/data_catalog.md)
+3. Run `scripts/init_database.sql`, then bronze → silver → gold in order
+4. Use SQL Server Express + SSMS (or Azure Data Studio) locally
 
-## 🌟 About Me
+**Tools:** [SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) · [SSMS](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
 
-Hi, I’m Ashutosh Ramesh Bhosale — a passionate tech enthusiast and data professional driven to turn data into insights, innovation, and real-world impact!
+---
+
+## Skills demonstrated
+
+SQL · ETL · Medallion DWH · Dimensional modelling · Data quality · Analytics reporting
+
+---
+
+## Author
+
+**Ashutosh Ramesh Bhosale** — Data Engineer / Analyst based in Sydney, Australia. Open to roles across Australia.
+
+[LinkedIn](https://www.linkedin.com/in/ashutosh-bhosalee/) · [GitHub](https://github.com/Ashb8)
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE).
